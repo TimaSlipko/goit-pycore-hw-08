@@ -164,27 +164,3 @@ def load_data(filename="addressbook.pkl"):
             return pickle.load(f)
     except FileNotFoundError:
         return AddressBook()
-    
-
-def main():
-    book = load_data()
-
-    print("current data:")
-    for k, v in book.items():
-        print(f"{k} - {v}")
-
-    try:
-        record = book.find("John")
-        record.add_phone("1234567893")
-
-        record2 = Record("Bob")
-        record2.add_birthday("11.06.2000")
-        book.add_record(record2)
-    except:
-        print("something went wrong")
-
-    save_data(book)
-
-
-if __name__ == "__main__":
-    main()
